@@ -36,8 +36,9 @@ stages:
       workingDirectory: $(projectRoot)
     - script: |
         export PATH=$HOME/.local/bin:$PATH
+        export PYTHONPATH=$HOME/.local/lib/python3.7/site-packages
         make install
-        # make lint
+        make lint
       workingDirectory: $(projectRoot)
       displayName: 'Run lint tests'
 

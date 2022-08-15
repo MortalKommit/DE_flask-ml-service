@@ -72,3 +72,9 @@ stages:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+
+          - task: AzureAppServiceManage@0
+            inputs:
+              azureSubscription: $(azureServiceConnectionId)
+              Action: 'Restart Azure App Service'
+              WebAppName: $(webAppName)
